@@ -10,13 +10,14 @@ let dischargingInterval;
 // Function to update the battery charge level on the UI
 function updateBatteryFill() {
   batteryFill.style.height = chargeLevel + '%';
+  batteryLevelText.textContent = chargeLevel + '%';
 }
 
 function startCharging() {
   clearInterval(dischargingInterval);
   chargingInterval = setInterval(() => {
     if (chargeLevel < 100) {
-      chargeLevel += 10;
+      chargeLevel += 5;
       updateBatteryFill();
     } else {
       clearInterval(chargingInterval);
@@ -32,7 +33,7 @@ function startDischarging() {
   clearInterval(chargingInterval);
   dischargingInterval = setInterval(() => {
     if (chargeLevel > 0) {
-      chargeLevel -= 10;
+      chargeLevel -= 5;
       updateBatteryFill();
     } else {
       clearInterval(dischargingInterval);
