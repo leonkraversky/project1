@@ -21,7 +21,7 @@ function startCharging() {
   clearInterval(autoDischargingTimeout);
   chargingInterval = setInterval(() => {
     if (chargeLevel < 100) {
-      chargeLevel += 5;
+      chargeLevel += 2;
       updateBatteryFill();
       batteryStatusText.textContent = 'Charging';
     } else {
@@ -41,7 +41,7 @@ function startDischarging() {
   clearInterval(autoChargingTimeout);
   dischargingInterval = setInterval(() => {
     if (chargeLevel > 0) {
-      chargeLevel -= 5;
+      chargeLevel -= 2;
       updateBatteryFill();
       batteryStatusText.textContent = 'Discharging';
     } else {
@@ -59,13 +59,13 @@ function stopDischarging() {
 function autoCharge() {
   startCharging();
   autoChargingTimeout = setTimeout(stopCharging, 30000); // AutoCharge for 30sec (charge to 100%)
-  batteryStatusText.textContent = 'Status: Auto-Charging';
+  batteryStatusText.textContent = 'Auto-Charging';
 }
 
 function autoDischarge() {
   startDischarging();
   autoDischargingTimeout = setTimeout(stopDischarging, 30000); // AutoDischarge for 30sec (discharge to 0%)
-  batteryStatusText.textContent = 'Status: Auto-Discharging';
+  batteryStatusText.textContent = 'Auto-Discharging';
 }
 
 function updateBatteryFill() {
