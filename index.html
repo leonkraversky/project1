@@ -8,13 +8,20 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <div class="container">
-        <div class="battery">
-            <div class="battery-level" id="batteryLevel"></div>
+    <div class="battery-container">
+        <div class="battery-outline">
+          <div class="battery-fill" id="batteryFill"></div>
         </div>
-        <button onclick="startCharging()">Charge</button>
-        <button onclick="stopCharging()">Discharge</button>
-    </div>
+      </div>
+    
+      <div class="buttons-container">
+        <button onclick="startCharging()">Start Charging</button>
+        <button onclick="stopCharging()">Stop Charging</button>
+        <button onclick="startDischarging()">Start Discharging</button>
+        <button onclick="stopDischarging()">Stop Discharging</button>
+        <button onclick="autoCharge()">AutoCharge</button>
+        <button onclick="autoDischarge()">AutoDischarge</button>
+      </div>
 
     <script src="battery-charge-simulation/script.js"></script>
 </body>
