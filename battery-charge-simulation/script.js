@@ -22,7 +22,7 @@ function startCharging() {
     } else {
       clearInterval(chargingInterval);
     }
-  }, 60000); // Charging curve with about 1 minute to charge 50% (10% per 6 seconds)
+  }, 10000); // Charging curve with about 10 sec to charge 50%
 }
 
 function stopCharging() {
@@ -38,7 +38,7 @@ function startDischarging() {
     } else {
       clearInterval(dischargingInterval);
     }
-  }, 120000); // Discharging curve with about 2 minutes to discharge 50% (10% per 12 seconds)
+  }, 120000); // Discharging curve with about 20 sec to discharge 50%
 }
 
 function stopDischarging() {
@@ -47,12 +47,12 @@ function stopDischarging() {
 
 function autoCharge() {
   startCharging();
-  setTimeout(stopCharging, 180000); // AutoCharge for 3 minutes (charge to 100%)
+  setTimeout(stopCharging, 30000); // AutoCharge for 30 sec (charge to 100%)
 }
 
 function autoDischarge() {
   startDischarging();
-  setTimeout(stopDischarging, 180000); // AutoDischarge for 3 minutes (discharge to 0%)
+  setTimeout(stopDischarging, 30000); // AutoDischarge for 30 sec (discharge to 0%)
 }
 
 function updateBatteryFill() {
