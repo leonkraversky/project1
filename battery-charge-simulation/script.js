@@ -1,5 +1,6 @@
 // Get the battery level element
 const batteryFill = document.getElementById('batteryFill');
+const batteryLevelText = document.getElementById('batteryLevel');
 
 // Initial battery charge level (between 0 and 100)
 let chargeLevel = 0;
@@ -51,4 +52,9 @@ function autoCharge() {
 function autoDischarge() {
   startDischarging();
   setTimeout(stopDischarging, 180000); // AutoDischarge for 3 minutes (discharge to 0%)
+}
+
+function updateBatteryFill() {
+  batteryFill.style.height = chargeLevel + '%';
+  batteryLevelText.textContent = chargeLevel + '%';
 }
